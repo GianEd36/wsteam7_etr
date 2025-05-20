@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,3 +29,7 @@ Route::get('/customer/dashboard', [AuthController::class, 'custDashboard'])->nam
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 // Route::get('/', [AuthController::class, 'backIndex'])->name('index');
+
+//Cart routes
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
